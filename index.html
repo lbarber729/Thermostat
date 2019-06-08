@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="style/style.css"/>
+  <meta charset="utf-8">
+<h1> Thermostat </h1>
+<hr>
+
+  </head>
+<body>
+
+  The current temperature is <span id="temperature">20</span>
+  <div>
+<button id="temp-up">+</button>
+<button id="temp-down">-</button>
+</div>
+<div>
+<button id="temp-reset">Reset</button>
+</div>
+
+Powersaving mode is <span id="power-saving"></span>
+<div>
+<button id="powersaving_on">Power Saving Mode on</button>
+<button id="powersaving_off">Power Saving Mode off</button>
+</div>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="src/thermostat.js"></script>
+    <script src="src/interface.js"></script>
+  </body>
+
+</html>

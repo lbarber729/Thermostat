@@ -10,13 +10,13 @@ describe("Thermostat", function(){
   });
 
   it("the temperature can go up", function(){
-    thermostat.up(20)
-    expect(thermostat._temperature).toBe(40);
+    thermostat.up()
+    expect(thermostat._temperature).toBe(21);
   });
 
   it('the temperature can go down', function() {
-    thermostat.down(5)
-    expect(thermostat._temperature).toBe(15);
+    thermostat.down()
+    expect(thermostat._temperature).toBe(19);
   });
 
   it('has a minimum temperature of 10', function() {
@@ -24,7 +24,31 @@ describe("Thermostat", function(){
   });
 
   it('has a maximum temperature', function() {
-    expect(thermostat._maximumTemperature).toBe(32);
+    expect(thermostat._maximumTemperature).toBe(25);
+  });
+
+  it('changes maximum temperature when power saving on', function() {
+    thermostat.powerSavingOn()
+    expect(thermostat._maximumTemperature).toBe(25)
+  });
+
+  it('changes maximum temperature when power saving off', function() {
+    thermostat.powerSavingOff()
+    expect(thermostat._maximumTemperature).toBe(32)
+  });
+
+  it('resets to 20', function()  {
+    thermostat.up()
+    thermostat.up()
+    thermostat.reset()
+    expect(thermostat._temperature).toBe(20);
+  });
+
+  it('shows the current energy usage', function() {
+    thermostat.down()
+    thermostat.down()
+    thermostat.down()
+    expect(thermostat.currentEnegryUsage()).toBe('Low Usage')
   });
 
 });
